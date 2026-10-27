@@ -9,7 +9,7 @@
     >
     <nav class="navlinks" aria-label="Navegação principal">
       @for (link of links(); track link.id) {
-        <a [href]="'#' + link.id">{{ link.label }}</a>
+        <a [href]="'#' + link.id" [class.button]="link.id === 'contato'">{{ link.label }}@if (link.id === 'contato') { <aw-motion-icon [size]="15" /> }</a>
       }
     </nav>
     <button

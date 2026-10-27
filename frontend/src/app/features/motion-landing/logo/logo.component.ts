@@ -18,6 +18,9 @@ import { LandingContent } from "../../../core/content-models";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LogoComponent {
+  private static nextId = 0;
+  readonly clipId = `aw-motion-logo-${LogoComponent.nextId++}`;
+  readonly animated = input(false);
   readonly src = input("");
   readonly accent = input("#6d28ff");
 }

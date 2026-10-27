@@ -2,7 +2,7 @@
   <div class="contact-panel">
     <div class="contact-copy">
       <span class="eyebrow">Vamos construir juntos</span>
-      <h2 id="motion-contact">{{ content().contact.title }}</h2>
+      <h2 id="motion-contact">@if (content().contact.title === "Vamos tirar sua ideia do papel?") {Vamos tirar sua<br /><span class="accent">ideia do papel?</span>} @else { {{ content().contact.title }} }</h2>
       <p>{{ content().contact.description }}</p>
       <div class="contact-note">
         <aw-motion-icon type="check" [size]="18" />Primeiro contato, sem
@@ -42,13 +42,6 @@
               <option [value]="service">{{ service }}</option>
             }
           </select></label
-        ><label
-          >WhatsApp (opcional)<input
-            formControlName="phone"
-            type="tel"
-            autocomplete="tel"
-            maxlength="40"
-            placeholder="DDD + número" /></label
         ><label
           >Sobre seu projeto<textarea
             formControlName="idea"

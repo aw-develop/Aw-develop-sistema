@@ -1,3 +1,16 @@
 :host {
   display: contents;
 }
+@media (prefers-reduced-motion: no-preference) {
+  .motion-icon {
+    animation: brand-pop 1s .3s both cubic-bezier(.22, 1.4, .36, 1);
+  }
+  .motion-icon path:first-of-type { animation: brand-left .8s .7s both; }
+  .motion-icon path:last-of-type { animation: brand-right .8s .9s both; }
+}
+@keyframes brand-pop {
+  from { opacity: 0; transform: scale(.5) rotate(-12deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes brand-left { from { opacity: 0; transform: translateX(-420px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes brand-right { from { opacity: 0; transform: translateX(420px); } to { opacity: 1; transform: translateX(0); } }

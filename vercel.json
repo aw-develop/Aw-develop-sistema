@@ -24,7 +24,7 @@
   "services": {
     "web": {
       "root": ".",
-      "buildCommand": "npm run build:angular && npm run migrate && npm test && node scripts/verify-management-db.js",
+      "buildCommand": "npm run build:angular && npm run migrate && node scripts/restore-motion-reference.js && npm test && node scripts/verify-management-db.js",
       "outputDirectory": "dist/angular",
       "installCommand": "npm ci --include=dev",
       "rewrites": [

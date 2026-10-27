@@ -2,12 +2,15 @@
   <img [src]="src()" alt="" width="32" height="32" />
 } @else {
   <svg
+    [class.motion-icon]="animated()"
     width="32"
     height="32"
     viewBox="158 160 940 930"
     fill="none"
     aria-hidden="true"
   >
+    <defs><clipPath [id]="clipId"><rect x="158" y="160" width="940" height="930" rx="190" /></clipPath></defs>
+    <g [attr.clip-path]="'url(#' + clipId + ')'">
     <rect
       x="158"
       y="160"
@@ -24,5 +27,6 @@
       fill="#fff"
       d="M565 505Q560 480 585 478L682 478Q692 478 697 488L790 660L962 370Q972 351 995 351L1100 351L1100 375L850 795Q825 833 790 833Q750 833 725 795Z"
     />
+    </g>
   </svg>
 }

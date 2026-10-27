@@ -519,7 +519,7 @@
 }
 @media (prefers-reduced-motion: no-preference) {
   .aw .motion-stage .motion-logo {
-    animation: aw-enter 1s both;
+    animation: none;
   }
   .aw .motion-word {
     animation: aw-word 1.2s 2.2s both;
