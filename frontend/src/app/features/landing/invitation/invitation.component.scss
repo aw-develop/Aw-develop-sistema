@@ -1,0 +1,6 @@
+@use '../../../../styles/landing';
+@include landing.section;
+.project-band { margin: 24px max(6%, calc((100vw - 1180px) / 2)); border: 1px solid #7f61f54d; border-radius: 14px; padding: 52px; background: #1d192a; }
+.project-band h2 { max-width: 760px; }
+.project-band p { max-width: 630px; font-size: 15px; margin-bottom: 26px; }
+@media (max-width: 720px) { .project-band { margin: 16px 22px; padding: 30px 24px; } }

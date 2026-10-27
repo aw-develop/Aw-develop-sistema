@@ -1,0 +1,12 @@
+@use '../../../../styles/landing';
+@include landing.section;
+.services { background: #141419; border-block: 1px solid var(--line); }
+.solutions-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.solutions-grid article { padding: 28px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; transition: border-color .2s; }
+.solutions-grid article:hover { border-color: #7f61f580; }
+.solution-category { color: var(--purple-text); font-size: 10px; font-weight: 600; letter-spacing: .08em; }
+.solutions-grid h3 { margin: 18px 0 12px; }
+.solutions-grid p { font-size: 14px; margin: 0; }
+.solution-detail { font-size: 12px; color: #c6c6d2; line-height: 1.6; margin-top: auto; padding-top: 22px; }
+@media (max-width: 1000px) { .solutions-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 600px) { .solutions-grid { grid-template-columns: 1fr; } .solutions-grid article { padding: 24px; } }

@@ -1,0 +1,9 @@
+@use '../../../../styles/landing';
+@include landing.section;
+.faq { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+details:first-child { padding-top: 0; }
+summary { cursor: pointer; color: #f2f2f8; font-size: 15px; font-weight: 500; line-height: 1.6; padding-right: 16px; }
+details[open] summary { color: var(--purple-text); }
+details p { font-size: 14px; margin: 16px 0 0; }
+@media (max-width: 800px) { .faq { grid-template-columns: 1fr; gap: 24px; } }

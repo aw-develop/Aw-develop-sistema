@@ -1,0 +1,5 @@
+:host { display: block; }
+.focus-strip { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px max(6%, calc((100vw - 1180px) / 2)); border-block: 1px solid var(--line); background: #141419; flex-wrap: wrap; }
+.focus-strip span { color: var(--muted); font-size: 9px; letter-spacing: .1em; }
+.focus-strip b { font-size: 12px; font-weight: 500; color: #dfdfe8; }
+@media (max-width: 720px) { .focus-strip { padding: 22px; justify-content: flex-start; gap: 18px 28px; } .focus-strip span { flex-basis: 100%; } }

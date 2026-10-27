@@ -1,0 +1,71 @@
+{
+  "regions": [
+    "iad1"
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    }
+  ],
+  "services": {
+    "web": {
+      "root": ".",
+      "buildCommand": "npm run build:angular && npm run migrate && npm test && node scripts/verify-management-db.js",
+      "outputDirectory": "dist/angular",
+      "installCommand": "npm ci --include=dev",
+      "rewrites": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html"
+        }
+      ],
+      "framework": "angular"
+    },
+    "search": {
+      "root": "infra/searxng-vercel",
+      "runtime": "container",
+      "entrypoint": "Dockerfile.vercel"
+    },
+    "backend": {
+      "root": ".",
+      "runtime": "container",
+      "entrypoint": "Dockerfile.vercel",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "search",
+          "format": "url",
+          "env": "SEARXNG_INTERNAL_URL"
+        }
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "web"
+      }
+    }
+  ]
+}
