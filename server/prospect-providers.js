@@ -48,6 +48,7 @@ export const categories = [
   {id:'school',label:'Escolas',key:'amenity',value:'school'},
   {id:'courses',label:'Escolas de cursos livres',key:'amenity',value:'training|trade_school|language_school|music_school|driving_school'},
   {id:'distributor',label:'Distribuidoras',key:'shop',value:'wholesale'},
+  {id:'beverage_distributor',label:'Distribuidoras de bebidas',key:'shop',value:'beverages|alcohol'},
   {id:'maintenance',label:'Empresas de manutenção e instalação',key:'craft',value:'electrician|plumber|hvac|electronics_repair'},
   {id:'childcare',label:'Creches e educação infantil',key:'amenity',value:'kindergarten'},
   {id:'estate',label:'Imobiliárias',key:'office',value:'estate_agent'},
