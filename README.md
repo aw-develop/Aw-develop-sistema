@@ -22,6 +22,18 @@ O painel permite editar conteúdo sem alterar o código, organizar seções, pub
 
 > **Estado atual do código:** frontend migrado para Angular: site público, login, primeiro acesso, visão geral, conteúdo, portfólio, seções, imagens, histórico, administradores, orçamentos, notificações e CRM. A API e os dados existentes foram preservados. A recuperação de senha por e-mail ainda depende de domínio e configuração de remetente.
 
+## Executar com Docker
+
+Site, painel e PostgreSQL local podem ser iniciados sem instalar Node na máquina. Siga [Docker local](docs/docker-local.md) para gerar `.env.docker`, subir os serviços e criar o administrador.
+
+```sh
+docker run --rm -v "${PWD}:/app" -w /app node:22-bookworm-slim node scripts/docker-setup.mjs
+docker compose --env-file .env.docker -f compose.local.yml up --build -d --wait
+docker compose --env-file .env.docker -f compose.local.yml exec app npm run create-owner
+```
+
+Acesse o site em http://localhost:3000 e o painel em http://localhost:3000/painel/login. O banco local é separado dos dados publicados.
+
 ## Tecnologias
 
 | Camada | Tecnologia | Uso |

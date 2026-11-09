@@ -1,0 +1,41 @@
+name: awdevelop-local
+services:
+  db:
+    image: postgres:16-bookworm
+    environment:
+      POSTGRES_DB: awdevelop
+      POSTGRES_USER: awdevelop
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Execute primeiro scripts/docker-setup.mjs}
+    volumes:
+      - awdevelop_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U awdevelop -d awdevelop"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "127.0.0.1:${APP_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: development
+      PORT: "3000"
+      DATABASE_URL: postgresql://awdevelop:${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD}@db:5432/awdevelop
+      BETTER_AUTH_URL: http://localhost:${APP_PORT:-3000}
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?Execute primeiro scripts/docker-setup.mjs}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:?Configure ADMIN_EMAIL}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/content').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 5s
+      timeout: 5s
+      start_period: 30s
+      retries: 30
+
+volumes:
+  awdevelop_db:

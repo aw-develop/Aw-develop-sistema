@@ -1,0 +1,11 @@
+node_modules
+.git
+.angular
+.vercel
+.env
+.env.*
+dist/angular
+dist/painel
+*.log
+*.zip
+*.tar.gz
