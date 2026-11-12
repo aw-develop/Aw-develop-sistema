@@ -1,6 +1,17 @@
 :host { display: block; }
-.topbar { min-height: 86px; display: flex; justify-content: space-between; gap: 20px; align-items: center; border-bottom: 1px solid var(--line); }
-.eyebrow { margin: 0 0 4px; font-size: 9px; }
-.topbar span { font-size: 13px; font-weight: 500; }
-.topbar-actions { display: flex; gap: 10px; align-items: center; }
-.topbar-actions button { font-size: 12px; min-height: 40px; padding: 9px 14px; }
+.topbar {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid #30323e;
+}
+.eyebrow { margin: 0 0 5px; font-size: 10px; letter-spacing: .1em; font-weight: 700; color: #a78bfa; }
+.topbar span { font-size: 13px; font-weight: 550; }
+.topbar-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.topbar-actions button { font-size: 12px; min-height: 40px; padding: 9px 14px; border-radius: 9px; }
+@media (max-width: 650px) {
+  .topbar { min-height: 72px; gap: 12px; }
+  .topbar-actions { justify-content: flex-end; }
+}

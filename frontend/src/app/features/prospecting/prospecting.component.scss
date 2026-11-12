@@ -4,12 +4,31 @@
 @use './styles/results';
 @use './styles/feedback';
 
-
-.workspace-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-.workspace-tabs button { background: var(--panel); border: 1px solid var(--line); color: var(--ink); }
-.workspace-tabs button.active { background: var(--purple); border-color: var(--purple); color: white; }
+:host { display: block; min-width: 0; }
+.workspace-tabs { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
+.workspace-tabs button {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 9px;
+  min-height: 42px;
+}
+.workspace-tabs button:hover:not(:disabled) { background: var(--panel-raised); }
+.workspace-tabs button.active {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+}
 .results-filters { grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
-.opportunity { border: 1px solid var(--line); border-left: 3px solid var(--muted); padding: 12px; border-radius: 8px; margin: 12px 0; }
+.opportunity {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--muted);
+  background: var(--panel);
+  padding: 16px;
+  border-radius: 10px;
+  margin: 12px 0;
+  min-width: 0;
+}
 .opportunity[data-level="high"] { border-left-color: var(--purple); background: var(--purple-soft); }
-.opportunity strong { font-size: .875rem; }
-.opportunity ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.opportunity strong { font-size: 14px; font-weight: 650; }
+.opportunity ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.6; }

@@ -1,14 +1,36 @@
 @use '../../../../styles/admin';
 @include admin.page;
-.advanced-filters { flex-basis: 100%; padding: 1rem; border: 1px solid #ffffff18; border-radius: 12px; }
-summary { cursor: pointer; font-weight: 600; }
-.filters-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; padding-top: 1rem; }
-.filters-grid label { display: grid; gap: .5rem; font-size: .85rem; }
+.advanced-filters {
+  flex-basis: 100%;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+summary { cursor: pointer; font-weight: 650; color: var(--ink); }
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 16px;
+  padding-top: 16px;
+}
+.filters-grid label { display: grid; gap: 8px; font-size: 13px; margin-top: 0; }
 .filters-grid input, .filters-grid select { width: 100%; min-width: 0; box-sizing: border-box; }
-.view-toolbar { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin: 1rem 0; }
-.view-toolbar button[aria-pressed=true] { outline: 2px solid currentColor; outline-offset: 2px; }
-.view-toolbar span { color: #a6a9ba; margin-left: auto; }
-
-.queue-controls {display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-top:24px;}
-.queue-controls label {min-width:220px;margin:0;}
-.view-toolbar button[aria-pressed=true] {background:var(--purple);color:#fff;outline:2px solid var(--purple-text);}
+.view-toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 20px 0; }
+.view-toolbar button { border-radius: 9px; }
+.view-toolbar button[aria-pressed=true] {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+  outline: 2px solid var(--purple-text);
+  outline-offset: 2px;
+}
+.view-toolbar span { color: var(--muted); margin-left: auto; font-size: 13px; }
+.queue-controls { display: flex; align-items: end; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.queue-controls label { min-width: min(100%, 220px); margin: 0; }
+@media (max-width: 650px) {
+  .advanced-filters { padding: 14px; }
+  .view-toolbar span { margin-left: 0; width: 100%; }
+  .queue-controls label { flex: 1 1 100%; }
+}
