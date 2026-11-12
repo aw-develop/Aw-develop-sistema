@@ -7,6 +7,8 @@ Branch: `design/admin-enterprise-redesign`. Pull request: #2.
 - Overview e métricas: grids responsivos e tipografia.
 - Mixin de páginas administrativas: cards, barras de ações, listas, títulos e grids.
 - CRM e prospecção: filtros, tabs, botões e cards.
+- Reuniões e editor de seções: superfícies, tipografia e grids responsivos.
+- Módulos de orçamentos, conteúdo, mídia e administradores herdam o mixin compartilhado de páginas administrativas.
 
 ## Verificações obrigatórias antes de merge
 - [ ] `npm ci`
