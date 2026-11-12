@@ -1,18 +1,4 @@
-:host {
-  display: block;
-}
-.section-editor-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 260px;
-  gap: 20px;
-}
-.section-list {
-  display: grid;
-  gap: 14px;
-  min-width: 0;
-}
-@media (max-width: 1050px) {
-  .section-editor-grid {
-    grid-template-columns: 1fr;
-  }
-}
+:host { display: block; min-width: 0; }
+.section-editor-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 20px; align-items: start; }
+.section-list { display: grid; gap: 16px; min-width: 0; }
+@media (max-width: 1050px) { .section-editor-grid { grid-template-columns: 1fr; } }
